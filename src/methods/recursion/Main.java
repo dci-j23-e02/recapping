@@ -14,7 +14,9 @@ public class Main {
      * f(n) 'n!' = 1*.....*n
      * */
 
-    System.out.println(factorial(5));
+    // System.out.println(factorial(5));
+
+    towerOfHanoi(3,"A","B","C");
   }
 
   public static int factorial(int n){
@@ -24,5 +26,34 @@ public class Main {
       return (n * factorial(n - 1));
       // Wrong: return  factorial(n);
     }
+  }
+/**
+ * if(n>0){
+ *   towerOfHanoi(n-1, A, C, B)
+ *    System.out.println("Move a disc from %s to %s, A, C);
+ *    towerOfHanoi(n-1, B, A, C)
+ * }
+ *
+ * towerOfHanoi(3, "A", "B", "C"):
+ *      towerOfHanoi(2, "A","C", "B"):
+ *      "Move a disc from 'A' to 'C'"
+ *      towerOfHanoi(2, "B", "A", "C"):
+ *
+ *
+ *
+ *
+ * */
+
+
+  public static void towerOfHanoi(int n, String A, String B, String C){
+    if(n>0){
+      towerOfHanoi(n-1, A, C, B);
+      System.out.printf("Move a disc from %s to %s",A,C);
+      towerOfHanoi(n-1, B, A, C);
+    }else{
+      System.out.println(" ");
+      return;
+    }
+
   }
 }
