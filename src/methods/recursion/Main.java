@@ -16,11 +16,11 @@ public class Main {
 
     // System.out.println(factorial(5));
 
-    towerOfHanoi(3,"A","B","C");
+    towerOfHanoi(4,"A","B","C");
   }
 
   public static int factorial(int n){
-    if(n == 1){
+    if(n == 1){ // base case
       return 1;
     }else{
       return (n * factorial(n - 1));
@@ -46,6 +46,7 @@ public class Main {
 
 
   public static void towerOfHanoi(int n, String A, String B, String C){
+    /*
     if(n>0){
       towerOfHanoi(n-1, A, C, B);
       System.out.printf("Move a disc from %s to %s",A,C);
@@ -54,6 +55,16 @@ public class Main {
       System.out.println(" ");
       return;
     }
+*/
+    // towerOfHanoi(2, "A", "B", "C")
+    if(n == 1){ // base case
+      System.out.printf("Move a disc from %s to %s",A,C);
+      return;
+    }else{
+      towerOfHanoi(n-1, A, C, B); //  towerOfHanoi(1, "A", "C", "B");
 
+      System.out.printf("Move a disc from %s to %s",A,C);
+      towerOfHanoi(n-1, B, A, C); //  towerOfHanoi(1, "B", "A", "C");
+    }
   }
 }
